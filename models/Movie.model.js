@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
   title: String,
@@ -10,5 +11,5 @@ const movieSchema = new Schema({
   },
 });
 
-const Movie = model("Movie", movieSchema);
+const Movie = mongoose.model("Movie", movieSchema);
 module.exports = Movie;

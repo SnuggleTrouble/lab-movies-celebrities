@@ -1,5 +1,6 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 const Celebrity = require("../models/Celebrity.model");
 
 // Route to show all celebrities
