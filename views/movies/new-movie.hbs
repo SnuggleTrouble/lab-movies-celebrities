@@ -1,0 +1,22 @@
+<section>
+  <h2>Add a Movie</h2>
+  <form action="/movies/new-movie.hbs" method="post">
+    <label for="title">Title
+      <input type="text" name="Title" />
+    </label>
+    <label for="genre">Genre
+      <input type="text" name="Genre" />
+    </label>
+    <label for="plot">Plot
+      <input type="text" name="Plot" />
+    </label>
+    <label for="cast">Select Cast
+      <select name="cast" multiple>
+        {{#each celebrities}}
+          <option value="{{_id}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+    </label>
+    <button type="submit">Add Movie</button>
+  </form>
+</section>
