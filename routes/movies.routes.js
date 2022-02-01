@@ -5,7 +5,7 @@ const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
 // Route for listing all movies
-router.get("/", (req, res, next) => {
+router.get("/movies", (req, res, next) => {
   Movie.find()
     .then((movies) => {
       res.render("movies/movies", { movies });
