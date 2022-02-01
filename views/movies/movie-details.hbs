@@ -16,9 +16,9 @@
     {{/each}}
   </ul>
   <div>
-    <a href="movies/{{_id}}">See details</a>
-    <a href="movies/{{_id}}/edit">Edit</a>
-    <form action="movies/{{_id}}/delete" method="post">
+    <a href="movies/{{this.id}}">See details</a>
+    <a href="movies/{{this.id}}/edit">Edit</a>
+    <form action="movies/{{this.id}}/delete" method="post">
       <button type="submit">Delete</button>
     </form>
   </div>

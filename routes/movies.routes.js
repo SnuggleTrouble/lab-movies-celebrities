@@ -4,27 +4,16 @@ const router = express.Router();
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
-// Route for listing all movies
-router.get("/movies", (req, res, next) => {
-  Movie.find()
-    .then((movies) => {
-      res.render("movies/movies", { movies });
-    })
-    .catch((error) => {
-      console.log(`There was an error when listing movies. ${error}`);
-    });
-});
-
 // The GET route
-router.get("/movies/create", (req, res, next) => {
+router.get("/create", (req, res, next) => {
   res.render("movies/new-movie");
 });
 
 // The POST route
-router.post("/movies/create", (req, res, next) => {
+router.post("/create", (req, res, next) => {
   Movie.create(req.body)
     .then((movie) => {
-      res.redirect("/movies");
+      res.redirect("/");
     })
     .catch((error) => {
       console.log(
@@ -32,6 +21,17 @@ router.post("/movies/create", (req, res, next) => {
       );
       res.render("movies/new-movie");
       next(error);
+    });
+});
+
+// Route for listing all movies
+router.get("/", (req, res, next) => {
+  Movie.find()
+    .then((movies) => {
+      res.render("movies/movies", { movies });
+    })
+    .catch((error) => {
+      console.log(`There was an error when listing movies. ${error}`);
     });
 });
 
