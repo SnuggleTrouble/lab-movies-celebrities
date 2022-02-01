@@ -2,6 +2,10 @@
   "name": "lab-movies-celebrities",
   "version": "0.0.0",
   "private": true,
+  "prettier":{
+    "semi": true,
+    "singleQuote": false
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
