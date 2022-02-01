@@ -12,7 +12,7 @@ router.get("/create", (req, res, next) => {
 router.post("/create", (req, res, next) => {
   Celebrity.create(req.body)
     .then((celebrity) => {
-      res.redirect("/");
+      res.redirect("/celebrities");
     })
     .catch((error) => {
       console.log(

@@ -1,24 +1,24 @@
 <h2>Movie Details</h2>
 <div>
-  <h3>{{title}}</h3>
-  <h4>{{genre}}</h4>
-  <h4>{{plot}}</h4>
+  <h3>{{movie.title}}</h3>
+  <h4>{{movie.genre}}</h4>
+  <h4>{{movie.plot}}</h4>
   <p>Cast</p>
   <ul>
-    {{#each cast}}
+    {{#each movie.cast}}
       <li>
-        {{name}}
+        {{this.name}}
         <br />
-        {{occupation}}
+        {{this.occupation}}
         <br />
-        {{catchPhrase}}
+        {{this.catchPhrase}}
       </li>
     {{/each}}
   </ul>
   <div>
-    <a href="movies/{{this.id}}">See details</a>
-    <a href="movies/{{this.id}}/edit">Edit</a>
-    <form action="movies/{{this.id}}/delete" method="post">
+    <a href="movies/{{movie.id}}">See details</a>
+    <a href="movies/{{movie.id}}/edit">Edit</a>
+    <form action="movies/{{movie.id}}/delete" method="post">
       <button type="submit">Delete</button>
     </form>
   </div>

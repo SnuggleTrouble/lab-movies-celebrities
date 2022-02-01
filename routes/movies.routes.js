@@ -13,13 +13,13 @@ router.get("/create", (req, res, next) => {
 router.post("/create", (req, res, next) => {
   Movie.create(req.body)
     .then((movie) => {
-      res.redirect("/");
+      res.redirect("/movies");
     })
     .catch((error) => {
       console.log(
         `There was an error when adding a movie ${error}. Please Try again`
       );
-      res.render("movies/new-movie");
+      res.redirect("/movies/create");
       next(error);
     });
 });
@@ -36,7 +36,7 @@ router.get("/", (req, res, next) => {
 });
 
 // The Details route
-router.get("/movies/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   Movie.findById(req.params.id)
     .populate("cast")
     .then((movie) => {
@@ -48,7 +48,7 @@ router.get("/movies/:id", (req, res, next) => {
 });
 
 // The Delete route
-router.post("/movies/:id/delete", (req, res, next) => {
+router.post("/:id/delete", (req, res, next) => {
   Movie.findByIdAndRemove(req.params.id)
     .then((movie) => {
       res.redirect("/movies");
@@ -59,7 +59,7 @@ router.post("/movies/:id/delete", (req, res, next) => {
 });
 
 // The Edit GET route
-router.get("/movies/:id/edit", (req, res, next) => {
+router.get("/:id/edit", (req, res, next) => {
   Movie.findById(req.params.id).then((movie) => {
     Celebrity.find()
       .then((celebrities) => {
@@ -72,7 +72,7 @@ router.get("/movies/:id/edit", (req, res, next) => {
 });
 
 // The Edit POST route
-router.post("/movies/:id/edit", (req, res, next) => {
+router.post("/:id/edit", (req, res, next) => {
   Movie.findByIdAndUpdate(req.params.id, req.body)
     .populate("cast")
     .then((movie) => {
@@ -80,7 +80,7 @@ router.post("/movies/:id/edit", (req, res, next) => {
     })
     .catch((error) => {
       console.log(`An error occurred when editing the movie ${error}`);
-      res.render("movies/edit-movie");
+      res.redirect(`/movies/${movie.id}/edit`)
     });
 });
 
