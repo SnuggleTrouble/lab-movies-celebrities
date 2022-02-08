@@ -1,12 +1,78 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.nav-bar {
+  height: 3vh;
+}
+
+ul {
+  border-bottom: 2px solid #43a3e6;
+  height: 30px;
+  padding: 1em 0;
+  list-style-type: none;
+}
+ 
+ul li {
+  line-height: 20px;
+}
+ 
+#to-right {
+  padding: 1em;
+  float: right;
+}
+ 
+#to-right span {
+  color: #43a3e6;
+  font-size: 1.5em;
+}
+
+#logout-form {
+  display: inline;
+}
+ 
+#logout-form button {
+  width: 120px;
+}
+
+.home-btn {
+  margin: 20px;
 }
 
 a {
   color: #00b7ff;
+  font-size: 20px;
+  text-decoration: none;
 }
 
-li {
-  list-style: none;
+.background-image {
+  background-image: url(https://cdn.akamai.steamstatic.com/steamcommunity/public/images/clans/30318585/e723a6db39386ff359df083867a494aed156b075.png);
+  background-size: cover;
+  height: 97vh;
+  width: 100vw;
+}
+
+.home-links {
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-title{
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  padding: 10px;
+  margin: 10px;
 }

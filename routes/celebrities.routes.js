@@ -2,6 +2,9 @@
 const express = require("express");
 const router = express.Router();
 const Celebrity = require("../models/Celebrity.model");
+const User = require("../models/User.model");
+const mongoose = require("mongoose");
+const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
 
 // The GET route
 router.get("/create", (req, res, next) => {
@@ -9,7 +12,7 @@ router.get("/create", (req, res, next) => {
 });
 
 // The POST route
-router.post("/create", (req, res, next) => {
+router.post("/create", isLoggedIn, (req, res, next) => {
   Celebrity.create(req.body)
     .then((celebrity) => {
       res.redirect("/celebrities");

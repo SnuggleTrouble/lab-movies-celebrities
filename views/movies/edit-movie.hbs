@@ -1,21 +1,25 @@
 <section>
-    <h2>Edit Movie</h2>
-    <form action="/movies/{{movie.id}}/edit" method="post">
+  <h2>Edit Movie</h2>
+  <form action="/movies/{{movie.id}}/edit" method="post">
     <label for="title">Title</label>
-    <input type="text" name="Title" value="{{movie.title}}"/>
-    <br>
+    <input type="text" name="Title" value="{{movie.title}}" />
+    <br />
     <label for="genre">Genre</label>
-    <input type="text" name="Genre" value="{{movie.genre}}"/>
-    <br>
+    <input type="text" name="Genre" value="{{movie.genre}}" />
+    <br />
     <label for="plot">Plot</label>
-    <input type="text" name="Plot" value="{{movie.plot}}"/>
-    <br>
+    <input type="text" name="Plot" value="{{movie.plot}}" />
+    <br />
     <label for="cast">Select Cast</label>
-      <select name="cast" multiple>
-        {{#each celebrities}}
-          <option value="{{this.id}}">{{this.name}}</option>
-        {{/each}}
-      </select>
+    <select name="cast" id="cast" multiple>
+      {{#each celebrities}}
+        {{#if selected}}
+          <option selected value={{_id}}>{{name}}</option>
+        {{else}}
+          <option value={{_id}}>{{name}}</option>
+        {{/if}}
+      {{/each}}
+    </select>
     <button type="submit">Submit</button>
-    </form>
+  </form>
 </section>

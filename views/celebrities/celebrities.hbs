@@ -1,11 +1,13 @@
+<section>
 <a href="/celebrities/create">Add a Celebrity</a>
 <h2>Celebrities</h2>
 {{#each celebrities}}
   <div>
-    <li>{{this.name}}
+    <li>Name: {{this.name}}
       <br>
-      {{occupation}}
+      Occupation: {{occupation}}
       <br>
-      "{{catchPhrase}}"</li>
+      Catch Phrase: "{{catchPhrase}}"</li>
   </div>
 {{/each}}
+</section>

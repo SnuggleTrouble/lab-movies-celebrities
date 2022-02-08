@@ -1,0 +1,8 @@
+{{#if userInSession}}
+  <h2>Welcome, {{userInSession.username}}!</h2>
+  <p>This is your profile page my friend!</p>
+  <a href="/celebrities/create">Add a Celebrity</a>
+  <a href="/movies/create">Add a Movie</a>
+{{else}}
+  <p>Still no logged in user, sorry!</p>
+{{/if}}
